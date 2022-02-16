@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Register page
+  body 
+    h1 Register page
+
+    each val, key in messages
+      span= val
+      
+    form(action="/register" method="POST")
+      div 
+        label(for="name") Name 
+        input(id="name" type="text" name="name")
+      div 
+        label(for="email") Email
+        input(id="email" type="text" name="email")
+      div 
+        label(for="password") Password 
+        input(id="password" type="password" name="password") 
+      div 
+        label(for="cpassword") Confirm Password 
+        input(id="cpassword" type="password" name="cpassword") 
+      div(messag)
+      div 
+        input(type="submit")
+
+    a(href="/login") Login

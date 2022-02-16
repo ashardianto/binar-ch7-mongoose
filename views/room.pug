@@ -1,0 +1,28 @@
+html
+  head
+    title AUTH-MONGOOSE
+  body
+    h1= `Room ${room.name}`
+
+    p Shall we play a game?
+
+    p(id="result") No result.
+
+    p
+      button Generate
+
+    div(id='with-result') 
+      if (room.result.length !== 0)
+        ul 
+          each val in room.result
+            li
+              p= val
+      else
+        p(id='no-result') No history record.
+
+
+    form(action=`/room/${room._id}/record`) 
+      //- input(type="id" value="")
+      input(type="submit" value="Send record" disabled)
+
+    script(src="/game.js") 

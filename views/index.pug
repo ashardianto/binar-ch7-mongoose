@@ -1,0 +1,27 @@
+html
+  head
+    title AUTH-MONGOOSE
+  body
+    h1= `Welcome ${user.name}!`
+    div
+      span My rooms:
+
+      if (user.room.length !== 0)
+        ul 
+          each val in user.room
+            li
+              a(href= `/room/${val.id}`)= val.name
+      else
+        span You have no room.
+    form(action='/room' method="post")
+      p
+        input(name="name" placeholder="Room name" required)
+        input(name="userId" value=user._id type="hidden")
+      each val, key in messages
+        p= val
+      input(type="submit" value="Create room")
+
+    br
+    br
+    form(action="/logout?_method=DELETE" method="POST") 
+      input(type="submit" value="Logout")
