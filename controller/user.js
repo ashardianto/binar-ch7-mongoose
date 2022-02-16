@@ -15,6 +15,8 @@ module.exports.addUser = async (req, res) => {
   const validateSync = user.validateSync();
   const errorUnmatched = password !== cpassword;
 
+  //ERROR HANDLER
+
   if (validateSync && (error = validateSync.errors['email']))
     return req.flash('error_email', error.message) && res.redirect('/register');
 
@@ -42,6 +44,8 @@ module.exports.addUser = async (req, res) => {
            res.redirect('/register');
   }
 }
+
+//AUTH USER
 
 module.exports.authUser = async (req, res) => {
   const { email, password } = req.body;

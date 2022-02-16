@@ -1,3 +1,5 @@
+ //MIDDLEWARE
+ 
  module.exports.middleware = (req, res, next) => {
   const header = req.headers.cookie;
   const cookie = require('cookie');
@@ -27,6 +29,8 @@
     next();
   });
 }
+
+// CHECK AUTHENTICATED COOKIE JWT
 
  module.exports.authenticated = (req, res, next) => {
   const header = req.headers.cookie;
